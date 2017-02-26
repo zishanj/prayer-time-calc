@@ -8,9 +8,9 @@
 </script>
 **Enter Time:**
 <div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc">
-Dawn: <input type="text" ng-model="timeCalc.timeDawn"/>
+Dawn: <input type="text" ng-model="timeCalc.timeDawn" ng-change="timeCalc.change()"/>
 
-Sunset: <input type="text" id="timeCalc.timeSunset"/>
+Sunset: <input type="text" ng-model="timeCalc.timeSunset" ng-change="timeCalc.change()"/>
 
 <strong>Length of day:</strong> {{timeCalc.dayLength}}
 </div>
