@@ -1,4 +1,16 @@
-{% include prayer-time-calc.html %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+ 
+    // Your code goes here.
+ 
+</script>
+<div>
+Enter Dawn Time: <input type="text" id="time-dawn"/><br/>
+Enter Sunset Time: <input type="text" id="time-sunset"/><br/>
+</div>
+<div id="length-of-day">
+
+</div>
 
 ## Welcome to GitHub Pages
 
