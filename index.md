@@ -11,9 +11,7 @@
 Dawn: <input type="text" ng-model="timeCalc.timeDawn" ng-change="timeCalc.change()"/>
 
 Sunset: <input type="text" ng-model="timeCalc.timeSunset" ng-change="timeCalc.change()"/>
-<input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
+
 <p><strong>Length of day:</strong> {{timeCalc.dayLength}}</p>
 </div>
 
