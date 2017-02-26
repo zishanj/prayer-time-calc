@@ -1,4 +1,7 @@
-angular.module('timeCalc', [])
+angular.module('timeCalc', [], function($interpolateProvider) {
+            $interpolateProvider.startSymbol('[{');
+            $interpolateProvider.endSymbol('}]');
+  })
   .controller('CtrlTimeCalc', function() {
     var timeCalc = this;
   
