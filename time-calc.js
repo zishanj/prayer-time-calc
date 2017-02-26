@@ -9,7 +9,7 @@ angular.module('timeCalc', [], function($interpolateProvider) {
     timeCalc.timeImsak = timeCalc.prayerTimes.imsak;
     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
     timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
-    timeCalc.timeIshraq = new Date(timeCalc.timeSunrise + (20*60000));
+    timeCalc.timeIshraq = timeCalc.getTime((new Date(timeCalc.timeSunrise + (20*60000))).getTime());
     timeCalc.timeSunset = timeCalc.prayerTimes.sunset;    
     
     timeCalc.change = function() {
@@ -28,5 +28,13 @@ angular.module('timeCalc', [], function($interpolateProvider) {
       var ss = Math.floor(msec / 1000);
       msec -= ss * 1000;
       timeCalc.dayLength = hh + ":" + mm + ":" + ss;
+    };
+    timeCalc.getTime = function(tmpTime) {
+      var hh = Math.floor(tmpTime / 1000 / 60 / 60);
+      msec -= hh * 1000 * 60 * 60;
+      var mm = Math.floor(msec / 1000 / 60);
+      msec -= mm * 1000 * 60;
+      var ss = Math.floor(msec / 1000);
+      msec -= ss * 1000;
     };
   });
