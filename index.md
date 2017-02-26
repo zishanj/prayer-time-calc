@@ -6,13 +6,13 @@
     // Your code goes here.
  
 </script>
-**Enter Time:**
+**Enter Time:** (h:m:s)
 <div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc">
 Dawn: <input type="text" ng-model="timeCalc.timeDawn" ng-change="timeCalc.change()"/>
 
 Sunset: <input type="text" ng-model="timeCalc.timeSunset" ng-change="timeCalc.change()"/>
 
-<strong>Length of day:</strong> {{timeCalc.dayLength}}
+<p><strong>Length of day:</strong> {{timeCalc.dayLength}}</p>
 </div>
 
 ## Welcome to GitHub Pages
