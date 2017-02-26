@@ -11,5 +11,5 @@ angular.module('timeCalc', [])
     msec -= mm * 1000 * 60;
     var ss = Math.floor(msec / 1000);
     msec -= ss * 1000;
-    timeCalc.dayLength = hh + ":" + mm + ":" + ss
+    timeCalc.dayLength = hh + ":" + mm + ":" + ss;
   });
