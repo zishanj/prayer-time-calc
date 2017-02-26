@@ -9,7 +9,7 @@ angular.module('timeCalc', [], function($interpolateProvider) {
     timeCalc.timeImsak = timeCalc.prayerTimes.imsak;
     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
     timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
-    timeCalc.timeIshraq = timeCalc.getTime((new Date(timeCalc.timeSunrise + (20*60000))).getTime());
+    timeCalc.timeIshraq = timeCalc.getTime((new Date(timeCalc.parseTime(timeCalc.timeSunrise) + (20*60000))).getTime());
     timeCalc.timeSunset = timeCalc.prayerTimes.sunset;    
     
     timeCalc.change = function() {
@@ -28,6 +28,14 @@ angular.module('timeCalc', [], function($interpolateProvider) {
       var ss = Math.floor(msec / 1000);
       msec -= ss * 1000;
       timeCalc.dayLength = hh + ":" + mm + ":" + ss;
+    };
+    timeCalc.parseTime = function(tmpTime) {
+      var time = tmpTime.match(/(\d+)(?::(\d\d))?\s*(p?)/);
+      var d = new Date();
+      d.setHours( parseInt(time[1]) + (time[3] ? 12 : 0) );
+      d.setMinutes( parseInt(time[2]) || 0 );
+      d.setSeconds(0,0);
+      return d.getTime();
     };
     timeCalc.getTime = function(tmpTime) {
       var hh = Math.floor(tmpTime / 1000 / 60 / 60);
