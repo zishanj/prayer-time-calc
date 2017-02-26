@@ -1,10 +1,9 @@
 angular.module('timeCalc', [])
   .controller('CtrlTimeCalc', function() {
     var timeCalc = this;
-    timeCalc.dayLength = '00:00:00';
   
     timeCalc.change = function() {
-      /*timeCalc.dayLength = "";
+      timeCalc.dayLength = "00:00:00";
       if (!timeCalc.timeDawn || !timeCalc.timeSunset)
         return;
       
@@ -18,6 +17,6 @@ angular.module('timeCalc', [])
       msec -= mm * 1000 * 60;
       var ss = Math.floor(msec / 1000);
       msec -= ss * 1000;
-      timeCalc.dayLength = hh + ":" + mm + ":" + ss;*/
+      timeCalc.dayLength = hh + ":" + mm + ":" + ss;
     };
   });
