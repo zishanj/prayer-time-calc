@@ -12,7 +12,7 @@ Dawn: <input type="text" ng-model="timeCalc.timeDawn" ng-change="timeCalc.change
 
 Sunset: <input type="text" ng-model="timeCalc.timeSunset" ng-change="timeCalc.change()"/>
 
-<p><strong>Length of day:</strong> {{timeCalc.dayLength}}</p>
+<p><strong>Length of day:</strong> [{timeCalc.dayLength}]</p>
 </div>
 
 ## Welcome to GitHub Pages
