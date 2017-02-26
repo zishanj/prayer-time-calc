@@ -4,7 +4,10 @@ angular.module('timeCalc', [], function($interpolateProvider) {
   })
   .controller('CtrlTimeCalc', function() {
     var timeCalc = this;
-  
+    prayTimes.setMethod('Karachi');
+    timeCalc.prayerTimes = prayTimes.getTimes(new Date(), [31.5497, 74.3436], +5);
+    timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
+    
     timeCalc.change = function() {
       timeCalc.dayLength = "00:00:00";
       if (!timeCalc.timeDawn || !timeCalc.timeSunset)
