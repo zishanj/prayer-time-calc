@@ -1,7 +1,7 @@
 angular.module('timeCalc', [])
   .controller('CtrlTimeCalc', function() {
     var timeCalc = this;
-    timeCalc.dayLength = "00:00:00";
+    timeCalc.dayLength = '00:00:00';
   
     timeCalc.change = function() {
       timeCalc.dayLength = "";
