@@ -7,7 +7,7 @@
  
 </script>
 **Enter Time:**
-<div ng-app="time-calc" ng-controller="CtrlTimeCalc as timeCalc">
+<div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc">
 Dawn: <input type="text" ng-model="timeCalc.timeDawn"/>
 
 Sunset: <input type="text" id="timeCalc.timeSunset"/>
