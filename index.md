@@ -1,15 +1,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
 <script>
  
     // Your code goes here.
  
 </script>
+**Enter Time:**
+<div ng-app="time-calc" ng-controller="CtrlTimeCalc as timeCalc">
+Dawn: <input type="text" ng-model="timeCalc.timeDawn"/>
 
-Enter Dawn Time: <input type="text" id="time-dawn"/>
+Sunset: <input type="text" id="timeCalc.timeSunset"/>
 
-Enter Sunset Time: <input type="text" id="time-sunset"/>
-
-**Length of day:** <span id="length-of-day"></span>
+<strong>Length of day:</strong> {{timeCalc.dayLength}}
+</div>
 
 ## Welcome to GitHub Pages
 
