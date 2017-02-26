@@ -7,7 +7,8 @@ angular.module('timeCalc', [], function($interpolateProvider) {
     prayTimes.setMethod('Karachi');
     timeCalc.prayerTimes = prayTimes.getTimes(new Date(), [31.5497, 74.3436], +5);
     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
-    timeCalc.timeSunset = timeCalc.prayerTimes.sunset;
+    timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
+    timeCalc.timeSunset = timeCalc.prayerTimes.sunset;    
     
     timeCalc.change = function() {
       timeCalc.dayLength = "00:00:00";
