@@ -6,6 +6,7 @@
 </script>
 
 Enter Dawn Time: <input type="text" id="time-dawn"/>
+
 Enter Sunset Time: <input type="text" id="time-sunset"/>
 
 **Length of day:** <span id="length-of-day"></span>
