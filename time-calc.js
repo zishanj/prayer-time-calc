@@ -9,7 +9,7 @@ angular.module('timeCalc', [], function($interpolateProvider) {
     timeCalc.timeImsak = timeCalc.prayerTimes.imsak;
     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
     timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
-    timeCalc.timeIshraq = new Data(timeCalc.timeSunrise + (20*60000));
+    timeCalc.timeIshraq = new Date(timeCalc.timeSunrise + (20*60000));
     timeCalc.timeSunset = timeCalc.prayerTimes.sunset;    
     
     timeCalc.change = function() {
