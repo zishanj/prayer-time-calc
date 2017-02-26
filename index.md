@@ -4,14 +4,11 @@
     // Your code goes here.
  
 </script>
-<div>
-Enter Dawn Time: <input type="text" id="time-dawn"/>
 
+Enter Dawn Time: <input type="text" id="time-dawn"/>
 Enter Sunset Time: <input type="text" id="time-sunset"/>
-</div>
-<div id="length-of-day">
-**Length of day:**
-</div>
+
+**Length of day:** <span id="length-of-day"></span>
 
 ## Welcome to GitHub Pages
 
