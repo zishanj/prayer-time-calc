@@ -5,11 +5,12 @@
  
 </script>
 <div>
-Enter Dawn Time: <input type="text" id="time-dawn"/><br/>
-Enter Sunset Time: <input type="text" id="time-sunset"/><br/>
+Enter Dawn Time: <input type="text" id="time-dawn"/>
+
+Enter Sunset Time: <input type="text" id="time-sunset"/>
 </div>
 <div id="length-of-day">
-
+**Length of day:**
 </div>
 
 ## Welcome to GitHub Pages
