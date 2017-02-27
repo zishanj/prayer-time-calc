@@ -60,6 +60,8 @@
                     timeCalc.timeImsak = timeCalc.prayerTimes.imsak;
                     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
                     timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
+                    var ishraq = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeSunrise), "minute", 20);
+                    timeCalc.timeIshraq = ishraq.getHours() + ":" + ishraq.getMinutes();
                     timeCalc.timeZawal = timeCalc.prayerTimes.dhuhr;
                     var zuhr = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeZawal), "minute", 10);
                     timeCalc.timeZuhr = zuhr.getHours() + ":" + zuhr.getMinutes();
@@ -81,8 +83,6 @@
                     var ss = Math.floor(msec / 1000);
                     msec -= ss * 1000;
                     timeCalc.dayLength = hh + ":" + mm;
-
-                    timeCalc.timeIshraq = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeSunrise), "minute", 20).toLocaleTimeString();
                 }, function(response) {
                     console.log(response.status);
                     console.log("Error occured");
