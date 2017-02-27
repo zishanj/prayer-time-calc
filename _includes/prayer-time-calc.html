@@ -13,6 +13,7 @@
         Location: <input type="text" ng-model="timeCalc.location" placeholder="lahore, pakistan"/><br/>
         Time Zone: <input type="text" ng-model="timeCalc.timeZone" placeholder="+5"/><br/>
         Calculation Method: <input type="text" ng-model="timeCalc.method" placeholder="Karachi"/> (MWL, ISNA, Egypt, Makkah, Karachi, Tehran, Jafari)<br/>
+        Fiqh: <label><input type="radio" ng-model="timeCalc.school" value="2">Hanafi</label><span style="padding-left:5em"><label><input type="radio" ng-model="timeCalc.school" value="1">Shafi', Maliki, Hanbali</label></span><br/>
         <button ng-click="timeCalc.change()">Locate</button>
     </p>
     Latitude: [{timeCalc.lat}] <span style="padding-left:5em">Longitute: [{timeCalc.lng}]</span><br/><br/>
