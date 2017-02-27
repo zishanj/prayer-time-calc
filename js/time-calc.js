@@ -61,9 +61,11 @@
                     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
                     timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
                     timeCalc.timeZawal = timeCalc.prayerTimes.dhuhr;
-                    timeCalc.timeZuhr = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeZawal), "minute", 10).toLocaleTimeString();
+                    var zuhr = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeZawal), "minute", 10);
+                    timeCalc.timeZuhr = zuhr.getHours() + ":" + zuhr.getMinutes();
                     timeCalc.timeAsr = timeCalc.prayerTimes.asr;
-                    timeCalc.timePreSunset = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.prayerTimes.sunset), "minute", -20).toLocaleTimeString();
+                    var preSunset = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.prayerTimes.sunset), "minute", -20);
+                    timeCalc.timePreSunset = preSunset.getHours() + ":" + preSunset.getMinutes();
                     timeCalc.timeSunset = timeCalc.prayerTimes.sunset;
                     timeCalc.timeMaghrib = timeCalc.prayerTimes.maghrib;
                     timeCalc.timeIsha = timeCalc.prayerTimes.isha;
