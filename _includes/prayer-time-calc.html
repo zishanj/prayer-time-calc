@@ -9,7 +9,7 @@
 </script>
 <b>Prayer Timings:</b> (h:m)
 
-<div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc">
+<div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc" markdown="1">
     <p>
         Location: <input type="text" ng-model="timeCalc.location" placeholder="lahore, pakistan"/><br/>
         Time Zone: <input type="text" ng-model="timeCalc.timeZone" placeholder="+5"/><br/>
@@ -22,9 +22,9 @@
     Dawn: [{timeCalc.timeDawn}]<br/>
     Sunrise: [{timeCalc.timeSunrise}]<br/>
     Ishraq: [{timeCalc.timeIshraq}]<br/>
-<p markdown="1">
+
 > When sun rises above the horizon to a length of 1 or 2 spears (1 spear is about 3m) and it takes about 15-20 minutes. Time between `sunrise` and `ishraq` is `makruh` time and no prayer should be offered.
- </p>
+ 
     Dhuha: <br/>
     Zawal: [{timeCalc.timeZawal}]<br/>
     Zuhr: [{timeCalc.timeZuhr}]<br/>
