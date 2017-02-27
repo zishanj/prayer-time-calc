@@ -86,8 +86,8 @@
                     return;
                 });
             
-                timeCalc.dayLength = "00:00:00";
-                /*if (!timeCalc.timeDawn || !timeCalc.timeSunset) {
+                /*timeCalc.dayLength = "00:00:00";
+                if (!timeCalc.timeDawn || !timeCalc.timeSunset) {
                     return;
                 }*/               
                             
