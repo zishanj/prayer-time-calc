@@ -63,6 +63,7 @@
                     timeCalc.timeZawal = timeCalc.prayerTimes.dhuhr;
                     timeCalc.timeZuhr = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeZawal), "minute", 10).toLocaleTimeString();
                     timeCalc.timeAsr = timeCalc.prayerTimes.asr;
+                    timeCalc.timePreSunset = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.prayerTimes.sunset), "minute", -20).toLocaleTimeString();
                     timeCalc.timeSunset = timeCalc.prayerTimes.sunset;
                     timeCalc.timeMaghrib = timeCalc.prayerTimes.maghrib;
                     timeCalc.timeIsha = timeCalc.prayerTimes.isha;
