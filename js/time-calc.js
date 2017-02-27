@@ -51,6 +51,7 @@
                     timeCalc.geoData = response.data;
                     
                     prayTimes.setMethod(timeCalc.method);
+                    prayTimes.adjust({'asr', 'Hanafi'});
                     timeCalc.lat = timeCalc.geoData.results[0].geometry.location.lat;
                     timeCalc.lng = timeCalc.geoData.results[0].geometry.location.lng;
                     timeCalc.prayerTimes = prayTimes.getTimes(new Date(), [timeCalc.lat, timeCalc.lng], timeCalc.timeZone);
