@@ -1,21 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-<script src="PrayTimes.js"></script>
-<script src="time-calc.js"></script>
-<script>
- 
-    // Your code goes here.
- 
-</script>
-**Enter Time:** (h:m:s)
-<div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc">
-Imsak: {{timeCalc.timeImsak}}<br/>
-Dawn: <input type="text" ng-model="timeCalc.timeDawn" ng-change="timeCalc.change()"/><br/>
-Sunrise: <input type="text" ng-model="timeCalc.timeSunrise" ng-change="timeCalc.change()"/><br/>
-Sunset: <input type="text" ng-model="timeCalc.timeSunset" ng-change="timeCalc.change()"/>
-
-<p><strong>Length of day:</strong> [{timeCalc.dayLength}]</p>
-</div>
+{% include prayer-time-calc.html %}
 
 ## Welcome to GitHub Pages
 

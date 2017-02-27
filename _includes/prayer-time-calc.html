@@ -1,13 +1,33 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script src="../PrayTimes.js"></script>
+<script src="../time-calc.js"></script>
 <script>
  
     // Your code goes here.
  
 </script>
-<div>
-Enter Dawn Time: <input type="text" id="time-dawn"/><br/>
-Enter Sunset Time: <input type="text" id="time-sunset"/><br/>
-</div>
-<div id="length-of-day">
+<b>Prayer Timings:</b> (h:m)
+<div ng-app="timeCalc" ng-controller="CtrlTimeCalc as timeCalc">
+    <p>
+        Location: <input type="text" ng-model="timeCalc.location" placeholder="lahore, pakistan"/><br/>
+        Time Zone: <input type="text" ng-model="timeCalc.timeZone" placeholder="+5"/><br/>
+        Calculation Method: <input type="text" ng-model="timeCalc.method" placeholder="Karachi"/> (MWL, ISNA, Egypt, Makkah, Karachi, Tehran, Jafari)<br/>
+        <button ng-click="timeCalc.change()">Locate</button>
+    </p>
+    Latitude: [{timeCalc.lat}] <span style="padding-left:5em">Longitute: [{timeCalc.lng}]</span><br/><br/>
+    Imsak: [{timeCalc.timeImsak}]<br/>
+    Dawn: [{timeCalc.timeDawn}]<br/>
+    Sunrise: [{timeCalc.timeSunrise}]<br/>
+    Ishraq: [{timeCalc.timeIshraq}]<br/>
+    Dhuha: <br/>
+    Zawal: [{timeCalc.timeZawal}]<br/>
+    Zuhr: [{timeCalc.timeZuhr}]<br/>
+    Asr: [{timeCalc.timeAsr}]<br/>
+    Sunset: [{timeCalc.timeSunset}]<br/>
+    Maghrib: [{timeCalc.timeMaghrib}]<br/>
+    Isha: [{timeCalc.timeIsha}]<br/>
 
+    <p><strong>Length of day:</strong> [{timeCalc.dayLength}]</p>
 </div>
+
