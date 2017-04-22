@@ -173,9 +173,9 @@
                     timeCalc.timeMaghrib = timeCalc.prayerTimes.maghrib;
                     timeCalc.timeIsha = timeCalc.prayerTimes.isha;
 
-                    var dateSunrise = new Date(0, 0, 0, timeCalc.timeSunrise.split(":")[0], timeCalc.timeSunrise.split(":")[1], 0);
+                    var dateDawn = new Date(0, 0, 0, timeCalc.timeDawn.split(":")[0], timeCalc.timeDawn.split(":")[1], 0);
                     var dateSunset = new Date(0, 0, 0, timeCalc.timeSunset.split(":")[0], timeCalc.timeSunset.split(":")[1], 0);
-                    var timeDiff = dateSunset.getTime() - dateSunrise.getTime();
+                    var timeDiff = dateSunset.getTime() - dateDawn.getTime();
                     var msec = timeDiff;
                     var hh = Math.floor(msec / 1000 / 60 / 60);
                     msec -= hh * 1000 * 60 * 60;
