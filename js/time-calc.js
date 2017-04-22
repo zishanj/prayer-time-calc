@@ -142,6 +142,9 @@
                 msec -= ss * 1000;
                 return hh + ":" + mm + ":" + ss;
             };
+            timeCalc.formatTime = function formatTime(n) {
+                return (n < 10 ? '0' : '') + n;
+            }
             timeCalc.location = "lahore, pakistan";
             timeCalc.timeZone = "+5";
             timeCalc.method = "Karachi";
@@ -162,13 +165,13 @@
                     timeCalc.timeDawn = timeCalc.prayerTimes.fajr;
                     timeCalc.timeSunrise = timeCalc.prayerTimes.sunrise;
                     var ishraq = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeSunrise), "minute", 20);
-                    timeCalc.timeIshraq = ishraq.getHours() + ":" + ishraq.getMinutes();
+                    timeCalc.timeIshraq = timeCalc.formatTime(ishraq.getHours()) + ":" + timeCalc.formatTime(ishraq.getMinutes());
                     timeCalc.timeZawal = timeCalc.prayerTimes.dhuhr;
                     var zuhr = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.timeZawal), "minute", 10);
-                    timeCalc.timeZuhr = zuhr.getHours() + ":" + zuhr.getMinutes();
+                    timeCalc.timeZuhr = timeCalc.formatTime(zuhr.getHours()) + ":" + timeCalc.formatTime(zuhr.getMinutes());
                     timeCalc.timeAsr = timeCalc.prayerTimes.asr;
                     var preSunset = timeCalc.dateAdd(timeCalc.parseTime(timeCalc.prayerTimes.sunset), "minute", -20);
-                    timeCalc.timePreSunset = preSunset.getHours() + ":" + preSunset.getMinutes();
+                    timeCalc.timePreSunset = timeCalc.formatTime(preSunset.getHours()) + ":" + timeCalc.formatTime(preSunset.getMinutes());
                     timeCalc.timeSunset = timeCalc.prayerTimes.sunset;
                     timeCalc.timeMaghrib = timeCalc.prayerTimes.maghrib;
                     timeCalc.timeIsha = timeCalc.prayerTimes.isha;
@@ -183,7 +186,7 @@
                     msec -= mm * 1000 * 60;
                     var ss = Math.floor(msec / 1000);
                     msec -= ss * 1000;
-                    timeCalc.dayLength = hh + ":" + mm;
+                    timeCalc.dayLength = timeCalc.formatTime(hh) + ":" + timeCalc.formatTime(mm);
                     
                     var timeDivision = timeCalc.timeDivision(0, hh, mm, ss, 4);
                     timeCalc.timeDuha = timeCalc.addTimes(timeCalc.timeDawn, timeDivision.hours + ":" + timeDivision.minutes)
