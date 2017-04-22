@@ -23,6 +23,107 @@
                 
                 return ret;
             };
+            //this same method can be used for multiplication
+            timeCalc.timeDivision = function timeDivision(days, hours, minutes, seconds, divisor) {
+                var c1 = days/divisor;
+                var c2 = hours/divisor;
+                var c3 = minutes/divisor;
+                var c4 = seconds/divisor;
+                
+                if (c1 != Math.round(c1)) {
+                    c2 += (c1 - Math.floor(c1)) * 24;
+                    c1 = Math.floor(c1);
+                }
+                if (c2 != Math.round(c2)) {
+                    c3 += (c2 - Math.floor(c2)) * 60;
+                    c2 = Math.floor(c2);
+                }
+                if (c3 != Math.round(c3)) {
+                    c4 += (c3 - Math.floor(c3)) * 60;
+                    c3 = Math.floor(c3);
+                }
+                while (c4 > 59) {
+                    c3 += 1;
+                    c4 -= 60;
+                }
+                while (c3 > 59) {
+                    c2 += 1;
+                    c3 -= 60;
+                }
+                while (c2 > 23) {
+                    c1 += 1;
+                    c2 -= 24;
+                }
+
+                while (c4 < 0 && (c3 > 0 || c2 > 0 || c1 > 0)) {
+                    c3 -= 1;
+                    c4 += 60;
+                }
+                while (c3 < 0 && (c2 > 0 || c1 > 0)) {
+                    c2 -= 1;
+                    c3 += 60;
+                }
+                while (c2 < 0 && c1 > 0) {
+                    c1 -= 1;
+                    c2 += 24;
+                }
+                if (c1 < 0) {
+                    c1 += 1;
+                    c2 = -(23 - c2);
+                    c3 = -(59 - c3);
+                    c4 = -(60 - c4);
+                    while (c4 <= -60) {
+                        c4 += 60;
+                        c3 -= 1;
+                    }
+                    while (c3 <= -60) {
+                        c3 += 60;
+                        c2 -= 1;
+                    }
+                    while (c2 <= -24) {
+                        c2 += 24;
+                        c1 -= 1;
+                    }
+                }
+
+                while (c1 < 0 && c2 > 0) {
+                    c2 -= 24;
+                    c1 += 1;
+                }
+                while (c2 < 0 && c3 > 0) {
+                    c3 -= 60;
+                    c2 += 1;
+                }
+                while (c3 < 0 && c4 > 0) {
+                    c4 -= 60;
+                    c3 += 1;
+                }
+                c4 *= 100;
+                c4 = Math.round(c4);
+                c4 /= 100;
+                
+                return {days: c1, hours: c2, minutes: c3, seconds: c4};
+            };
+            // Convert a time in hh:mm format to minutes
+            timeCalc.timeToMins = function timeToMins(time) {
+                var b = time.split(':');
+                return b[0] * 60 + +b[1];
+            }
+
+            // Convert minutes to a time in format hh:mm
+            // Returned value is in range 00  to 24 hrs
+            timeCalc.timeFromMins = function timeFromMins(mins) {
+                function z(n) {
+                    return (n < 10 ? '0' : '') + n;
+                }
+                var h = (mins / 60 | 0) % 24;
+                var m = mins % 60;
+                return z(h) + ':' + z(m);
+            }
+            // Add two times in hh:mm format
+            timeCalc.addTimes = function addTimes(t0, t1) {
+              return timeCalc.timeFromMins(timeCalc.timeToMins(t0) + timeCalc.timeToMins(t1));
+            }
             timeCalc.parseTime = function (tmpTime) {
                 var time = tmpTime.match(/(\d+)(?::(\d\d))?\s*(p?)/);
                 var d = new Date();
@@ -83,6 +184,10 @@
                     var ss = Math.floor(msec / 1000);
                     msec -= ss * 1000;
                     timeCalc.dayLength = hh + ":" + mm;
+                    
+                    var timeDivision = timeCalc.timeDivision(0, hh, mm, ss, 4);
+                    timeCalc.timeDuha = timeCalc.addTimes(timeCalc.timeDawn, timeDivision.hours + ":" + timeDivision.minutes)
+                    
                 }, function(response) {
                     console.log(response.status);
                     console.log("Error occured");
