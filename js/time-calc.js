@@ -176,9 +176,9 @@
                     timeCalc.timeMaghrib = timeCalc.prayerTimes.maghrib;
                     timeCalc.timeIsha = timeCalc.prayerTimes.isha;
 
-                    var dateDawn = new Date(0, 0, 0, timeCalc.timeDawn.split(":")[0], timeCalc.timeDawn.split(":")[1], 0);
+                    var dateSunrise = new Date(0, 0, 0, timeCalc.timeSunrise.split(":")[0], timeCalc.timeSunrise.split(":")[1], 0);
                     var dateSunset = new Date(0, 0, 0, timeCalc.timeSunset.split(":")[0], timeCalc.timeSunset.split(":")[1], 0);
-                    var timeDiff = dateSunset.getTime() - dateDawn.getTime();
+                    var timeDiff = dateSunset.getTime() - dateSunrise.getTime();
                     var msec = timeDiff;
                     var hh = Math.floor(msec / 1000 / 60 / 60);
                     msec -= hh * 1000 * 60 * 60;
@@ -189,7 +189,7 @@
                     timeCalc.dayLength = timeCalc.formatTime(hh) + ":" + timeCalc.formatTime(mm);
                     
                     var timeDivision = timeCalc.timeDivision(0, hh, mm, ss, 4);
-                    timeCalc.timeDuha = timeCalc.addTimes(timeCalc.timeDawn, timeDivision.hours + ":" + timeDivision.minutes)
+                    timeCalc.timeDuha = timeCalc.addTimes(timeCalc.timeSunrise, timeDivision.hours + ":" + timeDivision.minutes)
                     
                 }, function(response) {
                     console.log(response.status);
