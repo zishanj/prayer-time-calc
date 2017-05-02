@@ -4,7 +4,7 @@
         $interpolateProvider.startSymbol('[{');
         $interpolateProvider.endSymbol('}]');
     })
-        .controller('CtrlTimeCalc', ['$http', function ($http) {
+        .controller('CtrlTimeCalc', ['$http', '$sce', function ($http, $sce) {
             var timeCalc = this;
         
             timeCalc.dateAdd = function dateAdd(date, interval, units) {
@@ -159,6 +159,7 @@
                     prayTimes.adjust({asr: timeCalc.fiqh});
                     timeCalc.lat = timeCalc.geoData.results[0].geometry.location.lat;
                     timeCalc.lng = timeCalc.geoData.results[0].geometry.location.lng;
+                    timeCalc.mapUrl = $sce.trustAsResourceUrl("http://eqibla.com/embed/?type=map&zoom=15&ll=" + timeCalc.lat + "," + timeCalc.lng + "&ver=0.2");
                     timeCalc.prayerTimes = prayTimes.getTimes(new Date(), [timeCalc.lat, timeCalc.lng], timeCalc.timeZone);
                     
                     timeCalc.timeImsak = timeCalc.prayerTimes.imsak;
