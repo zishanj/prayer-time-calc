@@ -6,6 +6,7 @@
     })
         .controller('CtrlTimeCalc', ['$http', function ($http) {
             var timeCalc = this;
+            var apiKey = 'AIzaSyAhULK1wv19VOt-PUFgm-oa9TI4DFAVueM';
         
             timeCalc.dateAdd = function dateAdd(date, interval, units) {
                 var ret = new Date(date); //don't change original date
@@ -151,7 +152,7 @@
             timeCalc.fiqh = "Hanafi";
             
             timeCalc.change = function () {
-                $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + timeCalc.location + '&key=AIzaSyCeYHbsA8mz5ll_2za73-nrvqAd2VaHvXU')
+                $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + timeCalc.location + '&key=' + apiKey)
                 .then(function(response) {
                     timeCalc.geoData = response.data;
                     
